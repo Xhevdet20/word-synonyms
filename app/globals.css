@@ -1,27 +1,71 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: rgb(30, 41, 44);
+  display: flex;
+  justify-content: center;
+  /* align-items: center;
+  flex-direction: row; */
+  padding: 0;
+  margin: 0;
+  /* margin: 0 auto; */
+}
+
+.container {
+  min-width: 1400px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchBar form {
+  padding: 150px 0;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchBar input {
+  line-height: 45px;
+  min-width: 300px;
+  padding: 0 15px;
+  margin: 0;
+  outline: 0;
+  border: none;
+  border-radius: 7px 0  0 7px ;
+}
+
+.searchBar label {
+ margin: 10px;
+}
+
+.searchBar button {
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: none;
+  padding: 0 56px;
+  height: 45px;
+  line-height: 45px;
+  border: none;
+  border-radius:0 7px 7px  0;
+  font-weight: 400;
+  font-size: 16px;
+  background: #fff;
+  color: #696969;
+  box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+
+.searchBar button:hover {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 6px 20px rgb(93 93 93 / 23%);
+}
+
+ul li {
+  line-height: 2;
+  font-size: larger;
 }
