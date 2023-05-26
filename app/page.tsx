@@ -11,8 +11,7 @@ export default function Home() {
   const [results, setResults] = useState<Synonym[]>([]);
   const BASE_URL =
     process.env.NEXT_PUBLIC_API_URL ?? "https://api.datamuse.com";
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const getSynonyms = async (word : string) => {
     try {
       const response = await fetch(`${BASE_URL}/words?rel_syn=${word}`);
       if (!response.ok) {
@@ -23,20 +22,16 @@ export default function Home() {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    getSynonyms(word);
   };
 
   const handleSynonymClick = async (newWord : string) => {
     setWord(newWord)
-    try {
-      const response = await fetch(`${BASE_URL}/words?rel_syn=${newWord}`);
-      if (!response.ok) {
-        throw new Error("Request failed");
-      }
-      const data = await response.json();
-      setResults(data);
-    } catch (error) {
-      console.log(error);
-    }
+    getSynonyms(newWord);
   }
 
   return (
